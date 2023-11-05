@@ -42,14 +42,14 @@ def main():
         y_pred = loaded_model.predict(preprocessed_data)
 
         # Create the output dataframe
-        output = pd.DataFrame({'Customer': data['Customer'], 'y_pred': y_pred})
+        results = pd.DataFrame({'Customer': data['Customer'], 'Service_Repair': y_pred})
 
         # Display the output dataframe
         st.write("Prediction Results:")
-        st.dataframe(output)
+        st.dataframe(results)
 
         # Download button
-        st.markdown(download_csv(output), unsafe_allow_html=True)
+        st.markdown(download_csv(results), unsafe_allow_html = True)
 
 if __name__ == '__main__':
     main()
